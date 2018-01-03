@@ -4,7 +4,8 @@ volumes:
   postgres_data: {}
   postgres_backup: {}
   caddy: {}
-
+  sftp_rsa: {}
+  sftp_other: {}
 services:
   django:
     build:
@@ -13,6 +14,7 @@ services:
     depends_on:
       - postgres
       - redis
+      - sftp
     env_file: .env
     command: /gunicorn.sh
 
@@ -40,4 +42,12 @@ services:
 
   redis:
     image: redis:3.0
+
+  sftp:
+    image: atmoz/sftp:alpine
+    volumes:
+      - /var/upload:/home/sftp/upload
+      - sftp_rsa:/home/sftp/.ssh/keys/id_rsa.pub:ro
+      - sftp_other:/home/sftp/.ssh/keys/id_other.pub:ro
+    command: sftp::1001
 
