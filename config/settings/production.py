@@ -74,7 +74,7 @@ INSTALLED_APPS += ['gunicorn', ]
 # ------------------------
 # See: http://django-storages.readthedocs.io/en/latest/index.html
 
-INSTALLED_APPS += ['django-qiniu-storage', ]
+INSTALLED_APPS += ['qiniustorage', ]
 DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuPrivateStorage'
 QINIU_ACCESS_KEY = 'jOCEgrOksRJIbggo-qp6dLujp3Vhjc7DzHmin3vs'
 QINIU_SECRET_KEY = '-sn9yKeqdR7QYAVlMZZcDm4Ea44uI6sc4yc3IuJm'
