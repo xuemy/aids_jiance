@@ -1,0 +1,17 @@
+  {% load staticfiles %}
+<div class="card mb-2">
+    <div class="card-header text-center">
+        {{ request.site.name }}-购买试纸完美之地
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6 text-center">
+                <img src="{% static 'images/weixin.jpg' %}" alt="" class="img-fluid">
+                <span class="text-info">微信<i class="fa fa-hand-o-up" aria-hidden="true"></i></span>
+            </div>
+            <div class="col-6">
+                <img src="{% static 'images/qq.jpg' %}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</div>

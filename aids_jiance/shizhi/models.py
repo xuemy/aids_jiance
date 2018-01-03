@@ -6,10 +6,11 @@ from django.urls import reverse
 class Shizhi(models.Model):
     name = models.CharField(max_length=200, verbose_name='试纸名称')
     slug = models.CharField(max_length=20, unique=True)
+    bianhao = models.CharField(max_length=6, verbose_name='试纸编号', unique=True)
     cover = models.ImageField(verbose_name='封面图', upload_to='shizhi', null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     description = RichTextUploadingField(verbose_name='试纸介绍')
-    shiyong = RichTextUploadingField(verbose_name='使用介绍')
+    # shiyong = RichTextUploadingField(verbose_name='使用介绍')
 
     is_taozhuang = models.BooleanField(default=False, verbose_name='是否是套装')
     created = models.DateTimeField(auto_now_add=True)

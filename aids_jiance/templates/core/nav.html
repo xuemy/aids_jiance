@@ -1,0 +1,15 @@
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link p-2" href="{% url 'shizhi' %}">自测方案</a>
+  </li>
+  {% for nav in navs %}
+    <li class="nav-item">
+      <a href="{{ nav.get_absolute_url }}" class="nav-link p-2">{{ nav.name }}</a>
+    </li>
+  {% endfor %}
+
+  <li class="nav-item">
+    <a class="nav-link  p-2" href="#">使用说明</a>
+  </li>
+
+</ul>
