@@ -41,27 +41,28 @@ CACHES = {
     }
 }
 
+ALLOWED_HOSTS = ["*"]
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
-MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
-INSTALLED_APPS += ['debug_toolbar', ]
+# MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
+# INSTALLED_APPS += ['debug_toolbar', ]
 
-INTERNAL_IPS = ['127.0.0.1', '10.0.2.2', ]
+# INTERNAL_IPS = ['127.0.0.1', '10.0.2.2', ]
+#
+#
+# import socket
+# import os
+# # tricks to have debug toolbar when developing with docker
+# if os.environ.get('USE_DOCKER') == 'yes':
+#     ip = socket.gethostbyname(socket.gethostname())
+#     INTERNAL_IPS += [ip[:-1] + '1']
 
-
-import socket
-import os
-# tricks to have debug toolbar when developing with docker
-if os.environ.get('USE_DOCKER') == 'yes':
-    ip = socket.gethostbyname(socket.gethostname())
-    INTERNAL_IPS += [ip[:-1] + '1']
-
-DEBUG_TOOLBAR_CONFIG = {
-    'DISABLE_PANELS': [
-        'debug_toolbar.panels.redirects.RedirectsPanel',
-    ],
-    'SHOW_TEMPLATE_CONTEXT': True,
-}
+# DEBUG_TOOLBAR_CONFIG = {
+#     'DISABLE_PANELS': [
+#         'debug_toolbar.panels.redirects.RedirectsPanel',
+#     ],
+#     'SHOW_TEMPLATE_CONTEXT': True,
+# }
 
 # django-extensions
 # ------------------------------------------------------------------------------
@@ -73,3 +74,4 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Your local stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+DEBUG_TOOLBAR_CONFIG = {  'JQUERY_URL' : r"https://cdn.bootcss.com/jquery/2.2.3/jquery.slim.min.js"}

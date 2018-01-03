@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load pagination %}
+{% block main %}
+
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">首页</a></li>
+      {#    <li class="breadcrumb-item"><a href="{% url 'article:article_list' slug=category.slug %}">{{ category.name }}</a></li>#}
+      <li class="breadcrumb-item active" aria-current="page"></li>
+    </ol>
+  </nav>
+
+  <ul class="article-list list-group">
+  {% for obj in object_list %}
+    <li class="list-group-item">
+      <a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a>
+    </li>
+  {% endfor %}
+  {% if is_paginated %}
+    {% a_pagination paginator page_obj %}
+  {% endif %}
+
+{% endblock %}

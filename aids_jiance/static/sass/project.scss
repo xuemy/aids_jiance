@@ -1,11 +1,7 @@
-
-
-
-
 // project specific CSS goes here
 
 ////////////////////////////////
-		//Variables//
+//Variables//
 ////////////////////////////////
 
 // Alert colors
@@ -18,7 +14,7 @@ $dark-pink: #eed3d7;
 $red: #b94a48;
 
 ////////////////////////////////
-		//Alerts//
+//Alerts//
 ////////////////////////////////
 
 // bootstrap alert CSS, translated to the django-standard levels of
@@ -37,7 +33,7 @@ $red: #b94a48;
 }
 
 ////////////////////////////////
-		//Django Toolbar//
+//Django Toolbar//
 ////////////////////////////////
 
 // Display django-debug-toolbar.
@@ -46,4 +42,76 @@ $red: #b94a48;
 
 [hidden][style="display: block;"] {
   display: block !important;
+}
+
+.navbar {
+  border-bottom: 1px solid #eee;
+}
+
+.nav {
+  font-size: 0.85rem;
+}
+
+.wrap {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #f4f4f4;
+  background-size: cover;
+  font-size: 14px;
+}
+
+.liucheng {
+  .card-body {
+    //padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  .card-title {
+    font-size: 0.9rem;
+    font-weight: bolder;
+  }
+}
+
+.liucheng {
+  margin-bottom: 0.8rem;
+}
+
+.article-main {
+  background-color: #ffffff;
+  border-radius: 3px;
+  //padding: 0.5rem;
+
+  .article-title {
+    border-bottom: 1px dashed #eeeeee;
+  }
+}
+
+.footer {
+  .copywirte {
+    blockquote {
+      //border-left: 3px solid #EEEEEE;
+      font-size: 0.85rem;
+      //padding: 1px 20px;
+      //margin: 0 0 10px;
+    }
+  }
+}
+
+.red_a{
+  text-decoration: none;
+  color: rgb(46, 11, 11);
+  &:hover{
+    color: #ff0000;
+    text-decoration: none;
+  }
+}
+.shiyong{
+  font-size: 12px;
+}
+
+
+.zice{
+  h1{
+    font-size: 1.5rem;
+
+  }
 }

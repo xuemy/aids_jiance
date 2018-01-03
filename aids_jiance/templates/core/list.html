@@ -1,0 +1,12 @@
+{% load pagination %}
+<ul class="article-list list-group">
+  {% for obj  in object_list %}
+    <li class="list-group-item">
+      <a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% if is_paginated %}
+    {% a_pagination paginator page_obj %}
+{% endif %}

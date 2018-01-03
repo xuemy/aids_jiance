@@ -1,10 +1,10 @@
-FROM python:3.6
+FROM python:3-alpine
 
 ENV PYTHONUNBUFFERED 1
 
 # Requirements have to be pulled and installed here, otherwise caching won't work
 COPY ./requirements /requirements
-RUN pip install -r /requirements/local.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip install -r /requirements/local.txt -i https://mirrors.aliyun.com/pypi/simple/
 
 COPY ./compose/production/django/entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r//' /entrypoint.sh
@@ -14,13 +14,13 @@ COPY ./compose/local/django/start.sh /start.sh
 RUN sed -i 's/\r//' /start.sh
 RUN chmod +x /start.sh
 
-COPY ./compose/local/django/celery/worker/start.sh /start-celeryworker.sh
-RUN sed -i 's/\r//' /start-celeryworker.sh
-RUN chmod +x /start-celeryworker.sh
-
-COPY ./compose/local/django/celery/beat/start.sh /start-celerybeat.sh
-RUN sed -i 's/\r//' /start-celerybeat.sh
-RUN chmod +x /start-celerybeat.sh
+#COPY ./compose/local/django/celery/worker/start.sh /start-celeryworker.sh
+#RUN sed -i 's/\r//' /start-celeryworker.sh
+#RUN chmod +x /start-celeryworker.sh
+#
+#COPY ./compose/local/django/celery/beat/start.sh /start-celerybeat.sh
+#RUN sed -i 's/\r//' /start-celerybeat.sh
+#RUN chmod +x /start-celerybeat.sh
 
 WORKDIR /app
 

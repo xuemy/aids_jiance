@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+
+
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">首页</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'article:category_list' %}">分类</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'article:article_list' pk=category.id %}">{{ category.name }}</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">第{{ page_obj.number }}页</li>
+    </ol>
+  </nav>
+
+  {% include 'core/list.html' %}
+
+
+{% endblock %}

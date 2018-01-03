@@ -1,0 +1,7 @@
+<ul class="list-group mb-2">
+  {% for obj in object_list|slice:':6' %}
+    <li class="list-group-item p-2">
+      <a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a>
+    </li>
+  {% endfor %}
+</ul>

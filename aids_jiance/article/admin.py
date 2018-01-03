@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, ArticleCategory
+from .models import Article, ArticleCategory, ExtendSite
 
 
 # Register your models here.
@@ -26,7 +26,13 @@ admin.site.register(Article, ArticleAdmin)
 
 
 class ArticleCategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug')
-
+    list_display = ('name', 'slug', 'is_nav')
+    list_editable = ['is_nav']
 
 admin.site.register(ArticleCategory, ArticleCategoryAdmin)
+
+
+
+@admin.register(ExtendSite)
+class ExtendSiteAdmin(admin.ModelAdmin):
+    pass

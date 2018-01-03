@@ -46,9 +46,9 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
-    'allauth',  # registration
-    'allauth.account',  # registration
-    'allauth.socialaccount',  # registration
+    # 'allauth',  # registration
+    # 'allauth.account',  # registration
+    # 'allauth.socialaccount',  # registration
 
     'ckeditor',
     'ckeditor_uploader',
@@ -59,6 +59,7 @@ LOCAL_APPS = [
     # custom users app
     'aids_jiance.users.apps.UsersConfig',
     'aids_jiance.article.apps.ArticleConfig',
+    'aids_jiance.shizhi.apps.ShizhiConfig',
     # Your stuff: custom apps go here
 ]
 
@@ -75,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
 ]
 
 # MIGRATIONS CONFIGURATION
@@ -173,6 +175,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 # Your stuff: custom template context processors go here
+                'aids_jiance.article.context_processors.is_nav',
             ],
         },
     },
@@ -284,3 +287,6 @@ CKEDITOR_CONFIGS = {
         'language': 'zh-cn',
     }
 }
+
+
+EACHPAGE_NUMBER = 15

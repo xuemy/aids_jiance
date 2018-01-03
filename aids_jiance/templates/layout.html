@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{% endblock %}-{{ request.site.name }}</title>
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'sass/project.css' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{{ request.site.extend.logo.url }}" alt="" class="d-inline-block align-top">
+    </a>
+    {#    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"#}
+    {#            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">#}
+    {#      <span class="navbar-toggler-icon"></span>#}
+    {#    </button>#}
+  </div>
+
+</nav>
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link p-2" href="{% url 'shizhi' %}">自测方案</a>
+  </li>
+  {% for nav in navs %}
+    <li class="nav-item">
+      <a href="{{ nav.get_absolute_url }}" class="nav-link p-2">{{ nav.name }}</a>
+    </li>
+  {% endfor %}
+
+  <li class="nav-item">
+    <a class="nav-link  p-2" href="#">使用说明</a>
+  </li>
+
+</ul>
+
+
+<div class="wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8  mb-2">
+        {% include 'article/liucheng.html' %}
+        {% block main %}
+
+        {% endblock %}
+      </div>
+      <div class="col-md-4 col-sm-4 mb-2">
+        {% block rightbar %}
+          <div class="card mb-2">
+            <div class="card-header text-center">
+              {{ request.site.name }}-购买试纸完美之地
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6 text-center">
+                  <img src="{% static 'images/weixin.jpg' %}" alt="" class="img-fluid">
+                  <span class="text-info">微信<i class="fa fa-hand-o-up" aria-hidden="true"></i></span>
+                </div>
+                <div class="col-6">
+                  <img src="{% static 'images/qq.jpg' %}" class="img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% with categorys as object_list %}
+            {% include 'core/slider_list.html' %}
+          {% endwith %}
+        {% endblock %}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="container p-3">
+
+    <div class="copywirte">
+      <blockquote class="blockquote">
+        <p class="mb-0">
+          我们希望检测能成为常态，更希望艾滋越来越少！！！
+        </p>
+        <footer class="blockquote-footer">{{ request.site.name }}-{{ request.site.domain }} <cite title="Source Title">©
+          2015-2017 </cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>

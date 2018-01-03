@@ -8,16 +8,19 @@ from django.views import defaults as default_views
 urlpatterns = [
                   url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
                   url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+                  url(r'^zice/$', TemplateView.as_view(template_name='pages/zice.html'), name='zice'),
+                  url(r'^shiyong/$', TemplateView.as_view(template_name='pages/shizhishiyong.html'), name='shiyong'),
 
                   # Django Admin, use {% url 'admin:index' %}
                   url(settings.ADMIN_URL, admin.site.urls),
-
                   # User management
-                  url(r'^users/', include('aids_jiance.users.urls', namespace='users')),
-                  url(r'^accounts/', include('allauth.urls')),
+                  # url(r'^users/', include('aids_jiance.users.urls', namespace='users')),
+                  # url(r'^accounts/', include('allauth.urls')),
 
                   # Your stuff: custom urls includes go here
                   url(r'^', include('aids_jiance.article.urls', namespace='article')),
+                  url(r'^shizhi/', include('aids_jiance.shizhi.urls')),
+
                   url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

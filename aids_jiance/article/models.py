@@ -1,5 +1,6 @@
 import hashlib
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.sites.models import Site
 from django.db import models
 # Create your models here.
 from django.urls import reverse
@@ -16,17 +17,19 @@ def md5_slug(s):
 class ArticleCategory(models.Model):
     name = models.CharField(max_length=20)
     slug = models.TextField(max_length=16, editable=False, unique=True)
+    is_nav = models.BooleanField(verbose_name='是否在nav显示', default=False)
 
     class Meta:
         verbose_name = '文章分类'
         verbose_name_plural = '文章分类'
 
     def get_absolute_url(self):
-        return reverse('article:article_list', args=[self.slug])
+        return reverse('article:article_list', args=[self.id])
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        self.slug = md5_slug(self.name)
+        if not self.slug:
+            self.slug = md5_slug(self.name)
         super(ArticleCategory, self).save(force_insert=False, force_update=False, using=None,
                                           update_fields=None)
 
@@ -49,6 +52,7 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     stick = models.BooleanField(verbose_name='是否置顶', default=False)
+    views = models.PositiveIntegerField(default=5268, verbose_name='阅读统计量')
 
     class Meta:
         ordering = ('-publish',)
@@ -56,14 +60,31 @@ class Article(models.Model):
         verbose_name_plural = '文章'
 
     def get_absolute_url(self):
-        return reverse('article:article_detail', args=[self.slug])
+        return reverse('article:article_detail', args=[self.category.id, self.slug])
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        self.slug = md5_slug(self.name)
+        if not self.slug:
+            self.slug = md5_slug(self.name)
         super(Article, self).save(force_insert=False, force_update=False, using=None,
                                   update_fields=None)
 
+    def add_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])
+
     def __str__(self):
         return self.name
+
+
+class ExtendSite(models.Model):
+    site = models.OneToOneField(Site, related_name='extend')
+    logo = models.ImageField(upload_to='logo', null=True, blank=True)
+
+    def __str__(self):
+        return self.site.name
+
+    class Meta:
+        verbose_name = 'SIte 扩展'
+        verbose_name_plural = 'SIte 扩展'
 
