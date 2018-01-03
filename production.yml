@@ -45,7 +45,7 @@ services:
   sftp:
     image: atmoz/sftp:alpine
     ports:
-      - "22:2222"
+      - "2222:22"
     volumes:
       - /var/upload:/home/sftp/upload
     command: sftp:sftp:1001:100
