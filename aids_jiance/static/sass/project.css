@@ -1,0 +1,58 @@
+.alert-debug {
+  background-color: #fff;
+  border-color: #d6e9c6;
+  color: #000; }
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48; }
+
+[hidden][style="display: block;"] {
+  display: block !important; }
+
+.navbar {
+  border-bottom: 1px solid #eee; }
+
+.nav {
+  font-size: 0.85rem; }
+
+.wrap {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #f4f4f4;
+  background-size: cover;
+  font-size: 14px; }
+
+.liucheng .card-body {
+  font-size: 0.75rem; }
+.liucheng .card-title {
+  font-size: 0.9rem;
+  font-weight: bolder; }
+
+.liucheng {
+  margin-bottom: 0.8rem; }
+
+.article-main {
+  background-color: #ffffff;
+  border-radius: 3px; }
+  .article-main .article-title {
+    border-bottom: 1px dashed #eeeeee; }
+
+.footer .copywirte blockquote {
+  font-size: 0.85rem; }
+
+.red_a {
+  text-decoration: none;
+  color: #2e0b0b; }
+  .red_a:hover {
+    color: #ff0000;
+    text-decoration: none; }
+
+.shiyong {
+  font-size: 12px; }
+
+.zice h1 {
+  font-size: 1.5rem; }
+
+/*# sourceMappingURL=project.css.map */
