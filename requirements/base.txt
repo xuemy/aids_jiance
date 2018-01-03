@@ -31,7 +31,7 @@ django-allauth==0.34.0
 
 # On Windows, you must download/install psycopg2 manually
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
-psycopg2
+
 
 # Unicode slugification
 awesome-slugify==1.6.5
