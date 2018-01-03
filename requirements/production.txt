@@ -26,4 +26,6 @@ django-anymail==1.2
 # --------------------------
 raven==6.3.0
 
+paramiko
+
 
