@@ -82,6 +82,10 @@ SFTP_STORAGE_PARAMS = {
     'allow_agent': False,
     'look_for_keys': False,
 }
+SFTP_STORAGE_UID = 1001
+SFTP_STORAGE_GID = 100
+
+DEFAULT_FILE_STORAGE = 'storages.backends.sftpstorage.SFTPStorage'
 #
 # AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 # AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
