@@ -74,7 +74,7 @@ INSTALLED_APPS += ['gunicorn', ]
 # ------------------------
 # See: http://django-storages.readthedocs.io/en/latest/index.html
 INSTALLED_APPS += ['storages', ]
-SFTP_STORAGE_HOST = 'localhost'
+SFTP_STORAGE_HOST = '0.0.0.0'
 SFTP_STORAGE_ROOT = '/home/sftp/upload'
 SFTP_STORAGE_PARAMS = {
     'username': 'sftp',
