@@ -49,5 +49,5 @@ services:
       - /var/upload:/home/sftp/upload
 #      - /etc/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
 #      - /etc/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
-    command: sftp::1001
+    command: sftp:sftp:1001
 
