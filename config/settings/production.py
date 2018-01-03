@@ -75,9 +75,13 @@ INSTALLED_APPS += ['gunicorn', ]
 # See: http://django-storages.readthedocs.io/en/latest/index.html
 INSTALLED_APPS += ['storages', ]
 SFTP_STORAGE_HOST = 'localhost'
-SFTP_STORAGE_ROOT = 'upload'
-SFTP_STORAGE_UID = SFTP_STORAGE_GID = 'sftp'
-
+SFTP_STORAGE_ROOT = '/home/sftp/upload'
+SFTP_STORAGE_PARAMS = {
+    'username': 'sftp',
+    'password': 'sftp',
+    'allow_agent': False,
+    'look_for_keys': False,
+}
 #
 # AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 # AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
