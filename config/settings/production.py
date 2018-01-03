@@ -79,6 +79,7 @@ SFTP_STORAGE_ROOT = '/home/sftp/upload'
 SFTP_STORAGE_PARAMS = {
     'username': 'sftp',
     'password': 'sftp',
+    'port': 2222,
     'allow_agent': False,
     'look_for_keys': False,
 }
