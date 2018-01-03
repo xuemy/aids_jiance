@@ -47,7 +47,7 @@ services:
     image: atmoz/sftp:alpine
     volumes:
       - /var/upload:/home/sftp/upload
-      - sftp_rsa:/home/sftp/.ssh/keys/id_rsa.pub:ro
-      - sftp_other:/home/sftp/.ssh/keys/id_other.pub:ro
+      - /etc/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
+      - /etc/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
     command: sftp::1001
 
