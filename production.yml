@@ -14,6 +14,8 @@ services:
       - redis
       - sftp
     env_file: .env
+    links:
+      - sftp
     command: /gunicorn.sh
 
   postgres:
@@ -45,7 +47,5 @@ services:
     image: atmoz/sftp:alpine
     volumes:
       - /var/upload:/home/sftp/upload
-    ports:
-      - "22:22"
     command: sftp:sftp:1001:100
 
