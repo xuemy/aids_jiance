@@ -7,8 +7,6 @@ def index(request):
     return render(request, 'shizhi/index.html')
 
 
-class ShizhiShiyongView(TemplateView):
-    template_name = 'shizhi/shiyong.html'
 
 
 class IntroView(DetailView):

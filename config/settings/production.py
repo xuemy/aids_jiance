@@ -73,30 +73,17 @@ INSTALLED_APPS += ['gunicorn', ]
 # Uploaded Media Files
 # ------------------------
 # See: http://django-storages.readthedocs.io/en/latest/index.html
-
+# 七牛云
 INSTALLED_APPS += ['qiniustorage', ]
-DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuPrivateStorage'
-QINIU_ACCESS_KEY = 'jOCEgrOksRJIbggo-qp6dLujp3Vhjc7DzHmin3vs'
-QINIU_SECRET_KEY = '-sn9yKeqdR7QYAVlMZZcDm4Ea44uI6sc4yc3IuJm'
-QINIU_BUCKET_NAME = 'jikong120'
-QINIU_BUCKET_DOMAIN = 'ojf1iq7vq.qnssl.com'
-QINIU_SECURE_URL = True
-# MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 
-# SFTP_STORAGE_HOST = '0.0.0.0'
-# SFTP_STORAGE_ROOT = '/home/sftp/upload'
-# SFTP_STORAGE_PARAMS = {
-#     'username': 'sftp',
-#     'password': 'sftp',
-#     'port': 2222,
-#     'allow_agent': False,
-#     'look_for_keys': False,
-# }
-# SFTP_STORAGE_UID = 1001
-# SFTP_STORAGE_GID = 100
-#
-# DEFAULT_FILE_STORAGE = 'storages.backends.sftpstorage.SFTPStorage'
-#
+DEFAULT_FILE_STORAGE = env('DJANGO_DEFAULT_FILE_STORAGE')
+QINIU_ACCESS_KEY = env('DJANGO_QINIU_ACCESS_KEY')
+QINIU_SECRET_KEY = env('DJANGO_QINIU_SECRET_KEY')
+QINIU_BUCKET_NAME = env('DJANGO_QINIU_BUCKET_NAME')
+QINIU_BUCKET_DOMAIN = env('DJANGO_QINIU_BUCKET_DOMAIN')
+QINIU_SECURE_URL = True
+
+
 # AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 # AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
 # AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')

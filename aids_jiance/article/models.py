@@ -80,6 +80,8 @@ class Article(models.Model):
 class ExtendSite(models.Model):
     site = models.OneToOneField(Site, related_name='extend')
     logo = models.ImageField(upload_to='logo', null=True, blank=True)
+    baidu_analytics = models.CharField(max_length=40, null=True, verbose_name='百度统计ID')
+    google_analytics = models.CharField(max_length=40, null=True, verbose_name='Google统计ID')
 
     def __str__(self):
         return self.site.name

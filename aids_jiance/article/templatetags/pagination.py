@@ -19,7 +19,7 @@ def iter_pages(paginator, page_obj, left_edge=2, left_current=2,
             last = num
 
 
-@register.inclusion_tag('article/pagination.html')
+@register.inclusion_tag('core/pagination.html')
 def a_pagination(paginator, page_obj):
     return {
         'page_range': iter_pages(paginator, page_obj),
