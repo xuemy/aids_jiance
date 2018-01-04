@@ -364,3 +364,8 @@ aids_jiance/media/
 !/compose/local/
 
 .idea/inspectionProfiles/
+/sh
+aids_jiance/article/migrations/0008_auto_20180104_1038.py
+aids_jiance/article/migrations/0009_auto_20180104_1052.py
+aids_jiance/shizhi/migrations/0005_auto_20180104_1038.py
+sh

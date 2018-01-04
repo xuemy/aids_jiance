@@ -1,12 +1,14 @@
 import hashlib
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.models import User
+
 from django.contrib.sites.models import Site
 from django.db import models
 # Create your models here.
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.encoding import force_bytes, force_str, force_text
-from aids_jiance.users.models import User
+
 
 
 def md5_slug(s):
@@ -44,9 +46,11 @@ class Article(models.Model):
     )
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     category = models.ForeignKey(ArticleCategory, related_name='article', verbose_name='文章分类')
-    name = models.TextField(max_length=255, verbose_name='文章名')
+    name = models.CharField(max_length=255, verbose_name='文章名')
     slug = models.TextField(max_length=16, editable=False, unique=True)
-    author = models.ForeignKey(User, related_name='aritlce', verbose_name='作者')
+
+    # author = models.ForeignKey(User, related_name='aritlce', verbose_name='作者')
+
     body = RichTextUploadingField(verbose_name='正文')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -54,6 +58,8 @@ class Article(models.Model):
     stick = models.BooleanField(verbose_name='是否置顶', default=False)
     views = models.PositiveIntegerField(default=5268, verbose_name='阅读统计量')
 
+    seo_key = models.CharField(max_length=200, verbose_name='关键词', null=True, blank=True)
+    seo_desc = models.CharField(max_length=255, verbose_name='页面描述', null=True, blank=True)
     class Meta:
         ordering = ('-publish',)
         verbose_name = '文章'
@@ -80,8 +86,13 @@ class Article(models.Model):
 class ExtendSite(models.Model):
     site = models.OneToOneField(Site, related_name='extend')
     logo = models.ImageField(upload_to='logo', null=True, blank=True)
-    baidu_analytics = models.CharField(max_length=40, null=True, verbose_name='百度统计ID')
-    google_analytics = models.CharField(max_length=40, null=True, verbose_name='Google统计ID')
+
+    seo_title = models.CharField(max_length=200, verbose_name='首页标题', blank=True)
+    seo_key = models.CharField(max_length=200, verbose_name='首页关键词', blank=True)
+    seo_desc = models.CharField(max_length=255, verbose_name='首页页面描述',  blank=True)
+
+    baidu_analytics = models.CharField(max_length=40, blank=True, verbose_name='百度统计ID')
+    google_analytics = models.CharField(max_length=40, blank=True, verbose_name='Google统计ID')
 
     def __str__(self):
         return self.site.name

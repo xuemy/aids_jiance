@@ -13,12 +13,9 @@ urlpatterns = [
 
                   # Django Admin, use {% url 'admin:index' %}
                   url(settings.ADMIN_URL, admin.site.urls),
-                  # User management
-                  # url(r'^users/', include('aids_jiance.users.urls', namespace='users')),
-                  # url(r'^accounts/', include('allauth.urls')),
 
                   # Your stuff: custom urls includes go here
-                  url(r'^', include('aids_jiance.article.urls', namespace='article')),
+                  url(r'^a/', include('aids_jiance.article.urls', namespace='article')),
                   url(r'^shizhi/', include('aids_jiance.shizhi.urls')),
 
                   url(r'^ckeditor/', include('ckeditor_uploader.urls')),

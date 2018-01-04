@@ -10,7 +10,9 @@ class Shizhi(models.Model):
     cover = models.ImageField(verbose_name='封面图', upload_to='shizhi', null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     description = RichTextUploadingField(verbose_name='试纸介绍')
-    # shiyong = RichTextUploadingField(verbose_name='使用介绍')
+
+    seo_key = models.CharField(max_length=200, verbose_name='关键词', null=True, blank=True)
+    seo_desc = models.CharField(max_length=255, verbose_name='页面描述', null=True, blank=True)
 
     is_taozhuang = models.BooleanField(default=False, verbose_name='是否是套装')
     created = models.DateTimeField(auto_now_add=True)
@@ -30,6 +32,9 @@ class Questions(models.Model):
     shizhi = models.ForeignKey('Shizhi')
     name = models.CharField(max_length=200, verbose_name='问题')
     reply = RichTextUploadingField(verbose_name='答案')
+
+    seo_key = models.CharField(max_length=200, verbose_name='关键词', null=True, blank=True)
+    seo_desc = models.CharField(max_length=255, verbose_name='页面描述', null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
