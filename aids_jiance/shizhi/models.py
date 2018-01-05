@@ -28,6 +28,9 @@ class Shizhi(models.Model):
     def get_absolute_url(self):
         return reverse('shizhi_intro', args=[self.slug])
 
+    def get_questions_url(self):
+        return reverse('shizhi_questions', args=[self.slug])
+
 class Questions(models.Model):
     shizhi = models.ForeignKey('Shizhi')
     name = models.CharField(max_length=200, verbose_name='问题')

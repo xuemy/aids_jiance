@@ -54,6 +54,7 @@ LOCAL_APPS = [
     # custom users app
     'aids_jiance.article.apps.ArticleConfig',
     'aids_jiance.shizhi.apps.ShizhiConfig',
+    'aids_jiance.site.apps.SiteConfig',
     # Your stuff: custom apps go here
 ]
 

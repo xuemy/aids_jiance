@@ -7,12 +7,11 @@
   <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{% url 'home' %}">首页</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'shizhi' %}">试纸</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'shizhi_intro' slug=shizhi.slug %}">{{ shizhi.name }}</a>
-      </li>
+      <li class="breadcrumb-item"><a href="{{ shizhi.get_questions_url }}">{{ shizhi.name }}问答</a></li>
       <li class="breadcrumb-item active" aria-current="page">第{{ page_obj.number }}页</li>
     </ol>
   </nav>
+
 
   {% include 'core/list.html' %}
 

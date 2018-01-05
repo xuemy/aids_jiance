@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, ArticleCategory, ExtendSite
+from .models import Article, ArticleCategory
 
 
 # Register your models here.
@@ -44,6 +44,4 @@ admin.site.register(ArticleCategory, ArticleCategoryAdmin)
 
 
 
-@admin.register(ExtendSite)
-class ExtendSiteAdmin(admin.ModelAdmin):
-    pass
+

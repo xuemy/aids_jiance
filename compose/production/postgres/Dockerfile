@@ -1,7 +1,12 @@
 FROM postgres:9-alpine
 
+
+#修改时区为中国
 ENV TZ=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apk update \
+ && apk add --no-cache tzdata \
+ && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+ && echo $TZ > /etc/timezone
 
 COPY ./compose/production/postgres/backup.sh /usr/local/bin/backup
 RUN chmod +x /usr/local/bin/backup

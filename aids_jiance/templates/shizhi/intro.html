@@ -11,9 +11,11 @@
     </ol>
   </nav>
 
-  <a class="red_a text-danger" href="{% url 'shizhi_shiyong' %}">
-  （点击查看{{ object.name }}使用说明）
-  </a>
+    <div class="bg-white p-2">
+      <a class="red_a text-danger d-block" href="{% url 'shiyong' %}">(点击查看{{ object.name }}使用说明)</a>
+      <a class="red_a text-danger d-block" href="{{ object.get_questions_url }}">(点击查看{{ object.name }}网友使用问答)</a>
 
   {{ object.description|safe }}
+    </div>
+
 {% endblock %}

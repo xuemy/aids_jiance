@@ -12,7 +12,6 @@ services:
     depends_on:
       - postgres
       - redis
-#      - sftp
     env_file: .env
 
     command: /gunicorn.sh
@@ -41,12 +40,3 @@ services:
 
   redis:
     image: redis:3.0
-
-#  sftp:
-#    image: atmoz/sftp:alpine
-#    ports:
-#      - "2222:22"
-#    volumes:
-#      - /var/upload:/home/sftp/upload
-#    command: sftp:sftp:1001:100
-
