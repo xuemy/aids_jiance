@@ -17,8 +17,10 @@ from django.urls import reverse
 class Shizhi(models.Model):
     name = models.CharField(max_length=200, verbose_name='试纸名称')
     bianhao = models.CharField(max_length=6, verbose_name='试纸编号', unique=True)
-    cover = models.ImageField(verbose_name='封面图', upload_to='shizhi', null=True)
+
+    cover = models.ImageField(verbose_name='封面图', upload_to='shizhi', null=True, blank=True)
     cover_url = models.URLField(verbose_name='封面图URL', blank=True)
+
     price = models.DecimalField(max_digits=5, decimal_places=2)
     description = RichTextUploadingField(verbose_name='试纸介绍')
 
@@ -50,10 +52,15 @@ class Shizhi(models.Model):
         verbose_name_plural = '试纸'
 
     def get_absolute_url(self):
-        return reverse('shizhi_intro', args=[self.slug])
+        return reverse('shizhi_intro', args=[self.bianhao])
 
     def get_questions_url(self):
-        return reverse('shizhi_questions', args=[self.slug])
+        return reverse('shizhi_questions', args=[self.bianhao])
+
+    @classmethod
+    def get_fangan(cls, k):
+        return cls.objects.filter(fangan=k).all()
+
 
 class Questions(models.Model):
     shizhi = models.ForeignKey('Shizhi')

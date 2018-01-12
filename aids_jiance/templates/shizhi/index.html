@@ -1,59 +1,46 @@
 {% extends 'layout.html' %}
-
+{% load fangan %}
 
 {% block main %}
     <div class="bg-white p-2 mb-2">
         <ul class="nav nav-pills nav-fill mb-2" role="tablist">
-            <li class="nav-item">
-                <a href="#danfen" class="nav-link active" id="danfen-tab" data-toggle="tab" role="tab" aria-controls="danfen" aria-selected="true">
-                    单份试纸
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#two-week" class="nav-link" id="two-week-tab" data-toggle="tab" role="tab" aria-controls="two-week" aria-selected="true">
-                    两周检测方案
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#four-week" class="nav-link" id="four-week-tab" data-toggle="tab" role="tab" aria-controls="four-week" aria-selected="true">
-                    四周检测方案
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#eight-week" class="nav-link" id="eight-week-tab" data-toggle="tab" role="tab" aria-controls="eight-week" aria-selected="true">
-                    八周检测方案
-                </a>
-            </li>
+
+            {% for k,v in fangan %}
+                <li class="nav-item">
+                    <a href="#{{ k }}" class="nav-link {% if forloop.first %}active{% endif %}" id="{{ k }}-tab"
+                       data-toggle="tab" role="tab" aria-controls="{{ k }}" aria-selected="true"
+                    >{{ v }}</a>
+                </li>
+            {% endfor %}
+
         </ul>
         <div class="tab-content" id="jiance-content">
-            <div class="tab-pane fade show active" id="danfen" role="tabpanel" aria-labelledby="danfen-tab">
-                        <table class="table table-bordered table-sm">
-            <th>
-                编号
-            </th>
-            <th>
-                试纸
-            </th>
-            <th>
-                价格
-            </th>
-            <th>
-                其他
-            </th>
-
-        </table>
-            </div>
-            <div class="tab-pane fade  " id="two-week" role="tabpanel" aria-labelledby="two-week-tab">
-
-            </div>
-            <div class="tab-pane fade  " id="four-week" role="tabpanel" aria-labelledby="four-week-tab">
-
-            </div>
-            <div class="tab-pane fade  " id="eight-week" role="tabpanel" aria-labelledby="eight-week-tab">
-
-            </div>
+            {% for k, v  in fangan %}
+                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}"
+                     id="{{ k }}" role="tabpanel" aria-labelledby="{{ k }}-tab">
+                    {% fangan k %}
+                </div>
+            {% endfor %}
 
         </div>
 
+        <p class="text-danger">Tip:近来有好多人购买试纸一味追求价格，认为价格高的试纸准确度高，这种想法走进了误区，现在为大家解释一下。
+            试纸价格不是越贵越好，试纸价格不同是由于检测方法，进口或国产等原因决定的！<br>
+            <span class="text-info">
+                唾液试纸价格>血液试纸
+            </span><br>
+            <span class="text-info">
+                进口试纸价格>国产试纸
+            </span>
+        </p>
+
+        <dl>
+            <dt>关于两周检测试纸方案为空的说明：</dt>
+            <dd class="text-muted">
+                原定两周检测方案为韩国SD（4代）试纸，但是在一段时间的使用中发现，两周检测误差较大，艾滋病检测抗体的生成因人而异，有些人在两周
+                无法产生足够的抗体，导致检测失败，所以不推荐两周测试。同时在医院和疾控中心，对于高危两周的病人，同样不予检测，因此两周检测方案
+                撤销。
+            </dd>
+        </dl>
     </div>
 {% endblock %}

@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView
 from .models import Article, ArticleCategory
 
 
-class ArticleList(ListView):
+class CategoryArticleList(ListView):
     model = Article
     template_name = 'article/article_list.html'
     paginate_by = 15
@@ -16,10 +16,10 @@ class ArticleList(ListView):
     def get_queryset(self):
         category = get_object_or_404(ArticleCategory, pk=self.kwargs.get('pk'))
         setattr(self, 'category', category)
-        return super(ArticleList, self).get_queryset().filter(category=category)
+        return super(CategoryArticleList, self).get_queryset().filter(category=category)
 
     def get_context_data(self, **kwargs):
-        context = super(ArticleList, self).get_context_data(**kwargs)
+        context = super(CategoryArticleList, self).get_context_data(**kwargs)
         context['category'] = self.category
         return context
 
@@ -40,7 +40,7 @@ class ArticleDetailView(DetailView):
         return response
 
 
-class CategoryList(ListView):
-    model = ArticleCategory
-    paginate_by = 15
-    template_name = 'article/category_list.html'
+class AllArticleList(ListView):
+    model = Article
+    paginate_by = 20
+    template_name = 'article/all_article_list.html'

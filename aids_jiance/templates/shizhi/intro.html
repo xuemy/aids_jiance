@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-
+{% load fangan %}
 
 {% block main %}
   <nav aria-label="breadcrumb" role="navigation">
@@ -15,7 +15,23 @@
       <a class="red_a text-danger d-block" href="{% url 'shiyong' %}">(点击查看{{ object.name }}使用说明)</a>
       <a class="red_a text-danger d-block" href="{{ object.get_questions_url }}">(点击查看{{ object.name }}网友使用问答)</a>
 
-  {{ object.description|safe }}
+        <div class="row mt-2">
+            <div class="col-md-4">
+                <img class="img-fluid" src="{{ object.cover.url }}" alt="{{ object.name }}">
+                <p class="text-center">
+                    <a class="text-danger" href="{% url 'help' %}">点击购买试纸</a>
+                </p>
+            </div>
+            <div class="col-md-8">{{ object.description|safe }}</div>
+        </div>
+
     </div>
 
+{% endblock %}
+
+
+{% block rightbar %}
+    {% for k, v in fangan %}
+        {% fangan_list k v %}
+    {% endfor %}
 {% endblock %}

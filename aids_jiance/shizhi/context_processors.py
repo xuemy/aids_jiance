@@ -1,8 +1,7 @@
-from .models import ArticleCategory
+from .models import Shizhi
 
-
-def is_nav(request):
+def fangan(request):
     return {
-        'navs': ArticleCategory.objects.filter(is_nav=True).all(),
-        'categorys': ArticleCategory.objects.all(),
+        'fangan': Shizhi.FANGAN_CHOICES,
+
     }

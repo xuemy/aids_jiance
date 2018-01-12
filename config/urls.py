@@ -8,6 +8,8 @@ from django.views import defaults as default_views
 urlpatterns = [
                   url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
                   url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+                  url(r'^help/$', TemplateView.as_view(template_name='pages/help.html'), name='help'),
+
                   url(r'^zice/$', TemplateView.as_view(template_name='pages/zice.html'), name='zice'),
                   url(r'^shiyong/$', TemplateView.as_view(template_name='pages/shizhishiyong.html'), name='shiyong'),
 

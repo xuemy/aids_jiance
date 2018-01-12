@@ -171,6 +171,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # Your stuff: custom template context processors go here
                 'aids_jiance.article.context_processors.is_nav',
+                'aids_jiance.shizhi.context_processors.fangan',
             ],
         },
     },

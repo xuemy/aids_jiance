@@ -1,13 +1,12 @@
 <div class="footer">
   <div class="container p-3">
 
-      <div class="mb-2 friendlink">
-          <ul class="list-inline">
-
+      <div class="friendlink">
+          <ul class="list-inline mb-0">
               {% with request.site.friendlink.all  as friendlinks %}
               {% for friendlink in friendlinks %}
                 <li class="list-inline-item">
-                    <a href="{{ friendlink.url }}">{{ friendlink.name }}</a>
+                    <a href="{{ friendlink.url }}" class="text-muted small">{{ friendlink.name }}</a>
                 </li>
               {% endfor %}
 
@@ -19,8 +18,8 @@
         <p class="mb-0">
           我们希望检测能成为常态，更希望艾滋越来越少！！！
         </p>
-        <footer class="blockquote-footer">{{ request.site.name }}-{{ request.site.domain }} <cite title="Source Title">©
-          2015-2017 </cite></footer>
+        <footer class="blockquote-footer">{{ request.site.name }}{{ request.site.domain }} <cite title="Source Title">©
+          2015-{{ year }} </cite></footer>
       </blockquote>
     </div>
   </div>

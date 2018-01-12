@@ -22,7 +22,7 @@ class QuestionsView(ListView):
 
 
     def get_queryset(self):
-        shizhi = get_object_or_404(Shizhi, slug=self.kwargs.get('slug'))
+        shizhi = get_object_or_404(Shizhi, bianhao=self.kwargs.get('bianhao'))
         setattr(self, 'shizhi', shizhi)
         return super(QuestionsView, self).get_queryset().filter(shizhi=shizhi)
 

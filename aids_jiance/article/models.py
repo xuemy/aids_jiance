@@ -38,7 +38,11 @@ class ArticleCategory(models.Model):
     def __str__(self):
         return self.name
 
-
+class StatusManager(models.Manager):
+    # def get_queryset(self):
+    #     return super(StatusManager, self).get_queryset().filter(status='published')
+    def published(self):
+        return self.get_queryset().filter(status='published')
 class Article(models.Model):
     STATUS_CHOICES = (
         ('draft', '草稿'),
@@ -60,6 +64,9 @@ class Article(models.Model):
 
     seo_key = models.CharField(max_length=200, verbose_name='关键词', null=True, blank=True)
     seo_desc = models.CharField(max_length=255, verbose_name='页面描述', null=True, blank=True)
+
+    objects = StatusManager()
+
     class Meta:
         ordering = ('-publish',)
         verbose_name = '文章'
@@ -81,6 +88,10 @@ class Article(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def get_stick(cls):
+        return cls.objects.published().all()[:6]
 
 
 

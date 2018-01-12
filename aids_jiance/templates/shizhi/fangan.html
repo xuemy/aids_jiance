@@ -1,0 +1,29 @@
+
+<table class="table table-bordered table-sm">
+    <th>编号</th>
+    <th>试纸</th>
+    <th>价格</th>
+    {% for object in objects %}
+        <tr>
+            <td>
+                <a href="{{ object.get_absolute_url }}">{{ object.bianhao|upper }}</a></td>
+            <td>
+                <a href="{{ object.get_absolute_url }}">
+                    {{ object.name }}
+                </a>
+            </td>
+            <td><i class="fa fa-jpy text-danger" aria-hidden="true"></i>{{ object.price }}</td>
+
+        </tr>
+        <tr>
+            <td colspan="3">
+                {% if not object.is_taozhuang %}
+                <span class="text-info">{{ object.get_shizhi_type_display }}试纸</span>
+                {% endif %}
+
+                {{ object.other }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>

@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+{% block title %}
+艾滋病检测试纸购买流程，艾滋病检测试纸购买帮助
+{% endblock %}
+{% block keywords %}
+艾滋病检测试纸购买流程，艾滋病检测试纸购买帮助
+{% endblock %}
+{% block description %}
+本页面提供艾滋病检测的专业指导和购买流程
+{% endblock %}
+
+{% block main %}
+<div class="mb-2 bg-white p-2">
+    <h3 class="text-center">
+        完整的购买流程
+    </h3>
+
+    <dl>
+        <dt>
+            我们的联系方式
+        </dt>
+        <dd>
+            联系方式：微信，QQ，电话 <br>
+            <img src="{% static 'images/contact.png' %}" alt="">
+            <img src="{% static 'images/phone.png' %}" alt="">
+            <p>
+                推荐使用微信和QQ<a target="_blank" href="https://wpa.qq.com/msgrd?v=3&uin=2634687317&site=qq&menu=yes"><img
+      border="0" src="https://pub.idqqimg.com/qconn/wpa/button/button_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>，在线时间为全天，消息单天回复
+            </p>
+        </dd>
+
+        <dt>
+            购买流程一：
+        </dt>
+        <dd>
+            通过以上联系方式联系在线客服（医生）<span class="text-danger">必须联系，获取检测建议，不要自主下单</span>
+        </dd>
+        <dt>
+            购买流程二：
+        </dt>
+        <dd>
+            根据客服（医生）建议购买相关试纸，客服确认地址和电话
+        </dd>
+        <dt>
+            购买流程三：
+        </dt>
+        <dd>
+            根据自身情况通过淘宝流程或者微信付款，17:30之前付款可当日发货。
+        </dd>
+    </dl>
+</div>
+{% endblock %}
+
+{% block rightbar %}
+
+{% endblock %}

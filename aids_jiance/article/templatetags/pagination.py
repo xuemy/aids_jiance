@@ -1,6 +1,5 @@
 from django import template
-from django.conf import settings
-from django.core.paginator import Paginator
+
 
 register = template.Library()
 
