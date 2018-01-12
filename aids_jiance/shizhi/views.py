@@ -4,14 +4,14 @@ from .models import Shizhi, Questions
 
 
 def index(request):
+    # 试纸首页，试纸套装
     return render(request, 'shizhi/index.html')
-
-
-
 
 class IntroView(DetailView):
     model = Shizhi
     template_name = 'shizhi/intro.html'
+    slug_url_kwarg = 'bianhao'
+    slug_field = 'bianhao'
 
 
 class QuestionsView(ListView):

@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-
+{% load staticfiles %}
 {% block title %}
 雅培，艾博，爱卫，SD，英科，万孚艾滋病试纸使用说明
 {% endblock %}
@@ -10,4 +10,60 @@
 
 {% block description %}
 雅培，艾博，爱卫，SD，英科，万孚艾滋病试纸使用说明
+{% endblock %}
+
+{% block rightbar %}
+    <ul class="list-group mb-2">
+        <li class="list-group-item">
+            艾博艾滋病检测试纸使用说明
+        </li>
+        <li class="list-group-item">雅培艾滋病检测试纸使用说明</li>
+        <li class="list-group-item">爱卫艾滋病检测试纸使用说明</li>
+        <li class="list-group-item">SD、SD四代艾滋病检测试纸使用说明</li>
+        <li class="list-group-item">英科新创艾滋病检测试纸使用说明</li>
+        <li class="list-group-item">万孚艾滋病检测试纸使用说明</li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="bg-white p-2 mb-2">
+        <p class="text-info h4">
+            艾博、雅培、SD、SD4代、英科、万孚试纸均为血液检测试纸，使用方法相同,
+            爱卫为唾液试纸，使用方法在最下面
+        </p>
+        <p class="text-danger">
+            关于结果判读：测试结果判读时间为15-20分钟，超过时间判读无效。
+        </p>
+        
+        <div class="text-danger">
+            <p class="m-0 p-0 text-center">
+                关于血液和唾液试纸的区别
+            </p>
+            <dl>
+                <dt>
+                    血液试纸：
+                </dt>
+                <dd>
+                    直接采用血液进行检测，HIV抗体浓度高，灵敏度高。较为成熟的检测方案，医院和检测机构首选的广发的检测方法。
+                </dd>
+                <dt>
+                    唾液试纸：
+                </dt>
+                <dd>
+                    采用口腔粘膜渗出液，由于口腔粘膜渗出液中的HIV抗体来源于血液，导致渗出液中的浓度低于血液，所以检测灵密度稍低，需要技术高。
+                    因此试纸价格相对高。
+                </dd>
+            </dl>
+
+        </div>
+        <img src="{% static 'images/shizhi/xueye1.jpg' %}" class="img-fluid" alt="血液检测试纸使用说明">
+        <img src="{% static 'images/shizhi/xueye2.jpg' %}" class="img-fluid" alt="血液检测试纸使用说明">
+
+        <img src="https://img.alicdn.com/imgextra/i3/825279296/TB2HcZHjlDH8KJjy1zeXXXjepXa_!!825279296.jpg"
+             alt="爱卫艾滋病检测试纸使用说明" class="img-fluid">
+    </div>
+
+    {% include 'core/shenming.html' %}
 {% endblock %}

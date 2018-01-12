@@ -13,23 +13,29 @@
 {% endblock %}
 
 {% block main %}
-    <div class="card zice">
-        <div class="card-header">
-            <h1 class="text-center">
+    <div class="card zice mb-2">
+        <div class="card-header p-2">
+            <h1 class="text-center m-0">
                 艾滋病自测行为、症状对照表
             </h1>
         </div>
         <div class="card-body p-2">
-            <div class="lead text-danger">
-                如果没有下面所说症状，则表明无需进行艾滋病检测!
+            <div class="text-danger">
+                如果没有下面所说症状，则表明无需进行艾滋病检测! <br>
+                <span>
+                    <a href="{% url 'shizhi' %}">点击查看自测方案</a>
+                </span>
             </div>
 
-            <ul class="list">
+            <img class="img-fluid" src="https://img.alicdn.com/imgextra/i1/1699086763/TB2XziFaHH9F1JjSZFAXXba3VXa_!!1699086763.jpg" alt="">
+            <img class="img-fluid" src="https://img.alicdn.com/imgextra/i3/1699086763/TB23OwSX09HJuJjSZFzXXaH6pXa_!!1699086763.jpg" alt="">
 
-            </ul>
+            <span>
+                    <a href="{% url 'shizhi' %}">点击查看自测方案</a>
+                </span>
+
         </div>
     </div>
-    <div class="bg-white p-2 mb-2">
 
-    </div>
+    {% include 'core/shenming.html' %}
 {% endblock %}

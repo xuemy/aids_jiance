@@ -1,17 +1,26 @@
   {% load staticfiles %}
 <div class="card mb-2">
-    <div class="card-header text-center">
-        {{ request.site.name }}-购买试纸完美之地
+    <div class="card-header text-center bg-white p-2">
+        <strong>
+            {{ request.site.name }}
+        </strong>- <span class="text-muted">自测试纸放心之地</span>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-6 text-center">
-                <img src="{% static 'images/weixin.jpg' %}" alt="" class="img-fluid">
-                <span class="text-info">微信<i class="fa fa-hand-o-up" aria-hidden="true"></i></span>
-            </div>
-            <div class="col-6">
-                <img src="{% static 'images/qq.jpg' %}" class="img-fluid" alt="">
-            </div>
+    <div class="card-body p-2 ">
+        <div class="card-text text-info text-center">
+            不要盲目购买，适合自己的检测才是最好的！
         </div>
+        <img src="{% static 'images/contact.png' %}" alt="`QQ,微信联系方式" class="img-fluid">
+        <div class="text-center card-text text-success">扫描二维码获得检测指导
+            <span class="text-danger">（左微信，右QQ）</span>
+        </div>
+{#        <div class="row">#}
+{#            <div class="col-6 text-center">#}
+{#                <img src="{% static 'images/weixin.jpg' %}" alt="" class="img-fluid">#}
+{#                <span class="text-info">微信<i class="fa fa-hand-o-up" aria-hidden="true"></i></span>#}
+{#            </div>#}
+{#            <div class="col-6">#}
+{#                <img src="{% static 'images/qq.jpg' %}" class="img-fluid" alt="">#}
+{#            </div>#}
+{#        </div>#}
     </div>
 </div>

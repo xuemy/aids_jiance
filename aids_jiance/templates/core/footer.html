@@ -1,6 +1,19 @@
 <div class="footer">
   <div class="container p-3">
 
+      <div class="mb-2 friendlink">
+          <ul class="list-inline">
+
+              {% with request.site.friendlink.all  as friendlinks %}
+              {% for friendlink in friendlinks %}
+                <li class="list-inline-item">
+                    <a href="{{ friendlink.url }}">{{ friendlink.name }}</a>
+                </li>
+              {% endfor %}
+
+              {% endwith %}
+          </ul>
+      </div>
     <div class="copywirte">
       <blockquote class="blockquote">
         <p class="mb-0">
